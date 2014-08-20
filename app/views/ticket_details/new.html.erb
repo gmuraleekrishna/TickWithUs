@@ -1,0 +1,24 @@
+<% provide(:title, "Booking" ) %>
+<h1>Find Buses</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@ticket_detail) do |f| %>
+      <%= render 'shared/error_messages' %>
+
+      <%= f.text_field :from, :placeholder => "From" %>
+ 
+      <%= f.text_field :to, :placeholder => "To" %>
+       
+      <%= f.text_field :journey_date, :placeholder => "Date of Journey"  %>
+
+      <%= f.radio_button(:direction, "one way", :checked => true) %>
+      <%= f.label(:direction, "One Way") %>
+      <%= f.radio_button(:direction, "two way") %>
+      <%= f.label(:direction, "Two Way") %>
+
+      
+      <%= f.submit "Find Buses", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

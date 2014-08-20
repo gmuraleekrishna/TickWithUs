@@ -1,4 +1,12 @@
 GoPed::Application.routes.draw do
+  root 'static_pages#home'
+  resources :ticket_details
+  resources :sessions, only: [:new, :create, :destroy]
+  match '/help', to: 'static_pages#help', via: 'get'
+  match '/booking', to: 'ticket_details#new', via: 'get'
+  match '/results', to: 'ticket_details#show', via: 'get'
+  match '/search', to: 'ticket_details#search', via: 'get'
+  match '/status', to: 'ticket_details#status', via: 'get'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
